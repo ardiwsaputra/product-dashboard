@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <Analytics />
       <body>
-        <div className="flex flex-row mx-4 md:mx-auto mt-12 w-screen">
+        <div className="flex flex-row px-4 mt-12 w-screen">
           <Sidebar />
           <div className="w-5/6 overflow-auto">{children}</div>
         </div>

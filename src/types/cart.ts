@@ -1,3 +1,4 @@
+import { GetPaginationResult } from "./global";
 import { Product } from "./product";
 
 export interface Cart {
@@ -10,6 +11,6 @@ export interface Cart {
   totalQuantity: number
 }
 
-export interface GetCartResult {
+export interface GetCartResult extends GetPaginationResult {
   carts: Cart[]
 }
