@@ -1,7 +1,7 @@
 import React from "react";
 import "./globals.css";
 import type { Metadata } from "next";
-import Sidebar from "@/components/sidebar";
+import { Sidebar } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex flex-row mx-4 md:mx-auto mt-12 w-full md:w-[760px] lg:w-[1024px]">
+        <div className="flex flex-row mx-4 md:mx-auto mt-12 w-screen">
           <Sidebar />
           <div className="w-5/6 overflow-auto">{children}</div>
         </div>
