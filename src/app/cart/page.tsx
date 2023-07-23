@@ -15,7 +15,7 @@ export default function Home() {
   if (error) return <div>Failed to load</div>;
 
   return (
-    <main className="px-4">
+    <main className="px-4 space-y-4">
       <Table columns={columns} data={carts?.carts ?? []} isLoading={isLoading}/>
       <Pagination page={parseInt(page)} total={carts?.total ?? 0} />
     </main>
