@@ -1,2 +1,2 @@
-export { default as BurgerIcon } from "./burger";
+export { default as CartIcon } from "./cart";
 export { default as ProductIcon } from "./product";

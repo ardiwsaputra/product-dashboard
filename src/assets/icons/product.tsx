@@ -1,3 +1,4 @@
+import { PRIMARY } from "@/styles/colors";
 import React, { SVGProps } from "react";
 
 interface Props extends SVGProps<SVGSVGElement> {
@@ -9,9 +10,8 @@ const Product: React.FC<Props> = ({
   width = 24,
   ...rest
 }) => (
-  <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 22 21" {...rest}>
-    <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-    <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
+  <svg width={width} height={height} xmlns="http://www.w3.org/2000/svg" fill={PRIMARY} viewBox="0 -960 960 960" {...rest}>
+    <path d="M300-286q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-164q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm0-164q12 0 21-9t9-21q0-12-9-21t-21-9q-12 0-21 9t-9 21q0 12 9 21t21 9Zm132 328h244v-60H432v60Zm0-164h244v-60H432v60Zm0-164h244v-60H432v60ZM180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h600q24 0 42 18t18 42v600q0 24-18 42t-42 18H180Zm0-60h600v-600H180v600Zm0-600v600-600Z"/>
   </svg>
 );
 

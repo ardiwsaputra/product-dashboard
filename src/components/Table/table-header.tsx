@@ -18,7 +18,7 @@ const TableHeader = <T, K extends keyof T>({ columns }: TableHeaderProps<T, K>):
   });
 
   return (
-    <thead className="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-50 border-b-2 border-gray-200">
+    <thead className="text-xs text-default uppercase bg-primary border-b-2 border-white">
       <tr>{headers}</tr>
     </thead>
   );

@@ -7,13 +7,29 @@ export default function Home() {
 
   const columns: ColumnDefinitionType<Product, keyof Product>[] = [
     {
+      key: "title",
+      header: "Name",
+    },
+    {
       key: "brand",
       header: "Brand",
+    },
+    {
+      key: "price",
+      header: "Price",
+    },
+    {
+      key: "stock",
+      header: "Stock",
+    },
+    {
+      key: "category",
+      header: "Category",
     },
   ];
 
   return (
-    <main className="p-4">
+    <main className="px-4">
       <Table columns={columns} data={data} isLoading={false}/>
     </main>
   );

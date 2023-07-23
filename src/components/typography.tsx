@@ -20,7 +20,7 @@ const Typography: React.FC<Props> = ({ children, variant, color, weight, classNa
           "text-[16px]": variant === "subtitle",
           "text-[12px]": variant === "body",
         },
-        `font-${weight}`,
+        weight && `font-${weight}`,
         className
       )}>
       {children}
