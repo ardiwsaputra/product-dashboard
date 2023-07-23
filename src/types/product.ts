@@ -15,5 +15,5 @@ export interface Product {
 }
 
 export interface GetProductResult extends GetPaginationResult {
-  product: Product[]
+  products: Product[]
 }
