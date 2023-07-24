@@ -11,7 +11,7 @@ const Sidebar = () => {
     <div className="w-1/6 space-y-3 shadow p-1 sm:p-4 h-full bg-white rounded-lg">
       <Typography variant="title" className="sm:block hidden">Navbar</Typography>
       <SidebarItem href="/" isActive={pathname === "/"} text="Product" icon={<ProductIcon />} />
-      <SidebarItem href="/cart" isActive={pathname === "/cart"} text="Cart" icon={<CartIcon />} />
+      <SidebarItem href="/cart" isActive={pathname.includes("/cart")} text="Cart" icon={<CartIcon />} />
     </div>
   );
 };

@@ -5,6 +5,8 @@ export type ColumnDefinitionType<T, K extends keyof T> = {
     key: K;
     header: string;
     className?: string;
+    // eslint-disable-next-line no-unused-vars
+    cell?: (data: T) => React.ReactNode | string | undefined;
 }
 
 type TableProps<T, K extends keyof T> = {

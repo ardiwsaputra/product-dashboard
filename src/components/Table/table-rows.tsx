@@ -9,13 +9,18 @@ type TableRowsProps<T, K extends keyof T> = {
 }
 
 const TableRows = <T, K extends keyof T>({ data, columns, isLoading }: TableRowsProps<T, K>): React.JSX.Element => {
+  const columnRender = (row: T, column: ColumnDefinitionType<T, K>) => {
+    if (column.cell) return column.cell(row);
+    return row[column.key] as React.ReactNode;
+  };
+
   const rows = data.map((row, index) => {
     return (
       <tr key={`row-${index}`} className="bg-white border-b">
         {columns.map((column, index2) => {
           return (
             <td key={`cell-${index2}`} className={classNames("px-6 py-4 whitespace-nowrap", column.className)}>
-              {row[column.key] as React.ReactNode}
+              {columnRender(row, column)}
             </td>
           );
         }
