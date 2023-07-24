@@ -24,4 +24,14 @@ const columns: ColumnDefinitionType<Product, keyof Product>[] = [
   },
 ];
 
-export { columns };
+const brands = [
+  "Apple",
+  "Samsung",
+  "Huawei",
+  "OPPO",
+  "Infinix",
+  "Microsoft Surface",
+  "HP Pavilion",
+];
+
+export { columns, brands };
