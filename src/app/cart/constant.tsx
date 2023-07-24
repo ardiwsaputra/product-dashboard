@@ -6,7 +6,6 @@ const columns: ColumnDefinitionType<Cart, keyof Cart>[] = [
   {
     key: "id",
     header: "ID",
-    cell: (data: Cart) => <Link className="text-primary font-bold" href={`/cart/${data.id}-${data.userId}`}>{data.id}</Link>,
   },
   {
     key: "totalProducts",
@@ -19,6 +18,11 @@ const columns: ColumnDefinitionType<Cart, keyof Cart>[] = [
   {
     key: "total",
     header: "Total",
+  },
+  {
+    key: "id",
+    header: "Action",
+    cell: (data: Cart) => <Link className="text-primary" href={`/cart/${data.id}-${data.userId}`}>Detail</Link>,
   },
 ];
 

@@ -17,10 +17,10 @@ const TableRows = <T, K extends keyof T>({ data, columns, isLoading }: TableRows
 
   const rows = data.map((row, index) => {
     return (
-      <tr key={`row-${index}`} className="bg-white border-b flex flex-col mb-4 sm:table-row">
+      <tr key={`row-${index}`} className="bg-white border-b flex flex-col mb-4 sm:table-row rounded-lg grid grid-cols-2">
         {columns.map((column, index2) => {
           return (
-            <td key={`cell-${index2}`} className={classNames("px-6 py-4 whitespace-nowrap first:rounded-t-lg last:rounded-b-lg sm:first:rounded-t-none sm:last:rounded-b-none sm:first:rounded-tl-lg sm:first:rounded-bl-lg sm:last:rounded-tr-lg sm:last:rounded-br-lg", column.className)}>
+            <td key={`cell-${index2}`} className={classNames("px-6 py-4 whitespace-nowrap first:rounded-t-lg last:rounded-b-lg sm:first:rounded-t-none sm:last:rounded-b-none sm:first:rounded-tl-lg sm:first:rounded-bl-lg sm:last:rounded-tr-lg sm:last:rounded-br-lg truncate", column.className)}>
               <Typography color="primary" className="sm:hidden block">{column.header}</Typography>{columnRender(row, column)}
             </td>
           );
