@@ -16,12 +16,10 @@ type TableProps<T, K extends keyof T> = {
 }
 const Table = <T, K extends keyof T>({ data, columns, isLoading }: TableProps<T, K>): React.JSX.Element => {
   return (
-    <div className="relative overflow-x-auto shadow">
-      <table className="w-full text-sm text-left">
-        <TableHeader columns={columns} />
-        <TableRows columns={columns} data={data} isLoading={isLoading} />
-      </table>
-    </div>
+    <table className="w-full text-sm text-left">
+      <TableHeader columns={columns} />
+      <TableRows columns={columns} data={data} isLoading={isLoading} />
+    </table>
   );
 };
 

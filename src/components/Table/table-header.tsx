@@ -10,7 +10,7 @@ const TableHeader = <T, K extends keyof T>({ columns }: TableHeaderProps<T, K>):
     return (
       <th
         key={`headCell-${index}`}
-        scope="col" className="px-6 py-3"
+        scope="col" className="px-6 py-3 first:rounded-tl-lg last:rounded-tr-lg"
       >
         {column.header}
       </th>
@@ -19,7 +19,7 @@ const TableHeader = <T, K extends keyof T>({ columns }: TableHeaderProps<T, K>):
 
   return (
     <thead className="text-xs text-default uppercase bg-primary border-b-2 border-white">
-      <tr>{headers}</tr>
+      <tr className="sm:table-row flex sm:block hidden">{headers}</tr>
     </thead>
   );
 };

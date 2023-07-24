@@ -48,7 +48,7 @@ const Pagination: React.FC<PaginationProps> = ({ page, total }) => {
       {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
         <button
           key={number}
-          className={classNames("page-link text-primary sm:block hidden", {
+          className={classNames("page-link text-primary sm:block hidden bg-default rounded-lg", {
             "font-bold": page === number,
             "not:first-child:-ml-px": number !== 1,
           })}

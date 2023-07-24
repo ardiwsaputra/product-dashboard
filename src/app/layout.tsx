@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <div className="flex flex-row px-4 mt-12 w-screen">
           <Sidebar />
-          <div className="w-5/6 overflow-auto">{children}</div>
+          <div className="w-5/6">{children}</div>
         </div>
       </body>
     </html>

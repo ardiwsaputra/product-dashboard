@@ -23,7 +23,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         <Typography variant="subtitle"># of Items: {cart?.totalProducts}</Typography>
         <Typography variant="subtitle">Total Amount: {cart?.total}</Typography>
       </div>
-      <div className="w-full overflow-auto">
+      <div className="w-full">
         <Table columns={columns} data={cart?.products ?? []} isLoading={false} />
       </div>
     </div>
