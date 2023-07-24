@@ -15,9 +15,11 @@ export default function Home() {
   if (error) return <div>Failed to load</div>;
 
   return (
-    <main className="pl-4 space-y-4">
-      <Table columns={columns} data={products?.products ?? []} isLoading={isLoading}/>
-      <Pagination page={parseInt(page)} total={products?.total ?? 0} />
+    <main>
+      <div className="pl-4 space-y-4">
+        <Table columns={columns} data={products?.products ?? []} isLoading={isLoading}/>
+        <Pagination page={parseInt(page)} total={products?.total ?? 0} />
+      </div>
     </main>
   );
 }
