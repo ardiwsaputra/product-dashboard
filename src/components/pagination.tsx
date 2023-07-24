@@ -14,8 +14,9 @@ const Pagination = ({ page, total }: Props) => {
   return (
     <ReactPaginate
       pageRangeDisplayed={1}
-      onPageChange={(e: { selected: number }) => {
-        const currentPage = e.selected + 1;
+      onClick={(e) => {
+        const { isActive, selected, nextSelectedPage } = e;
+        const currentPage = (isActive ? selected : nextSelectedPage ?? page) + 1;
         router.push("?page=" + currentPage);
       }}
       initialPage={page}

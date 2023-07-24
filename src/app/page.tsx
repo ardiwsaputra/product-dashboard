@@ -6,7 +6,7 @@ import { useFetch } from "@/hooks/useRequest";
 import { Pagination } from "@/components";
 import { useSearchParams } from "next/navigation";
 
-export default function Home() {
+export default function Product() {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") ?? "0";
   const limit = 10;
@@ -15,11 +15,9 @@ export default function Home() {
   if (error) return <div>Failed to load</div>;
 
   return (
-    <main>
-      <div className="pl-4 space-y-4">
-        <Table columns={columns} data={products?.products ?? []} isLoading={isLoading}/>
-        <Pagination page={parseInt(page)} total={products?.total ?? 0} />
-      </div>
+    <main className="pl-4 space-y-4">
+      <Table columns={columns} data={products?.products ?? []} isLoading={isLoading}/>
+      <Pagination page={parseInt(page)} total={products?.total ?? 0} />
     </main>
   );
 }
