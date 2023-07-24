@@ -8,7 +8,7 @@ import { Pagination, Typography } from "@/components";
 
 export default function Page() {
   const searchParams = useSearchParams();
-  const page = searchParams.get("page") ?? "0";
+  const page = searchParams.get("page") ?? "1";
   const limit = 10;
   const skip = (parseInt(page) - 1) * limit;
   const { data: carts, isLoading }= useFetch<GetCartResult>(`carts?limit=${limit}&skip=${skip}`);

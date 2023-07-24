@@ -1,29 +1,73 @@
-"use client";
-import { useRouter } from "next/navigation";
 import React from "react";
-import ReactPaginate from "react-paginate";
+import classNames from "classnames";
+import { useRouter } from "next/navigation";
 
-type Props = {
+interface PaginationProps {
   page: number;
   total: number;
-};
+}
 
-const Pagination = ({ page, total }: Props) => {
-  const router = useRouter();
+const Pagination: React.FC<PaginationProps> = ({ page, total }) => {
+  const router =  useRouter();
+  const totalPages = Math.ceil(total / 10);
+  const isFirstPage = page === 1;
+  const isLastPage = page === totalPages;
+
+  const handlePrevClick = () => {
+    if (!isFirstPage) {
+      router.push(`?page=${page - 1}`);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (!isLastPage) {
+      router.push(`?page=${page + 1}`);
+    }
+  };
+
+  const handlePageClick = (pageNumber: number) => {
+    router.push(`?page=${pageNumber}`);
+  };
 
   return (
-    <ReactPaginate
-      pageRangeDisplayed={1}
-      onPageChange={(e: { selected: number }) => {
-        const currentPage = e.selected + 1;
-        router.push("?page=" + currentPage);
-      }}
-      initialPage={page}
-      pageCount={Math.ceil((total ?? 0) / 10)}
-      activeClassName="font-bold text-primary"
-      disabledClassName="pointer-events-none text-gray-400"
-      containerClassName="p-2 bg-white rounded-md flex flex-row space-x-4 text-primary relative overflow-x-auto shadow"
-    />
+    <div className="flex items-center justify-center space-x-4 bg-white rounded-lg p-4 sm:space-x-2">
+      <button
+        className={classNames("page-link text-primary", {
+          "first:rounded-l-lg text-gray-500": isFirstPage,
+        })}
+        onClick={handlePrevClick}
+        disabled={isFirstPage}
+      >
+        Previous
+      </button>
+
+      <span className="page-link text-primary sm:hidden block font-bold">
+        {page}
+      </span>
+
+      {Array.from({ length: totalPages }, (_, index) => index + 1).map((number) => (
+        <button
+          key={number}
+          className={classNames("page-link text-primary sm:block hidden", {
+            "font-bold": page === number,
+            "not:first-child:-ml-px": number !== 1,
+          })}
+          onClick={() => handlePageClick(number)}
+        >
+          {number}
+        </button>
+      ))}
+
+      <button
+        className={classNames("page-link text-primary", {
+          "last:rounded-r-lg text-gray-500": isLastPage,
+        })}
+        onClick={handleNextClick}
+        disabled={isLastPage}
+      >
+        Next
+      </button>
+    </div>
   );
 };
 
