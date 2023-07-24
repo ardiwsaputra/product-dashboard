@@ -8,7 +8,7 @@ import { SidebarItem } from ".";
 const Sidebar = () => {
   const pathname = usePathname();
   return (
-    <div className="w-1/6 space-y-3 shadow p-1 sm:p-4 h-full bg-white rounded-lg">
+    <div className="w-1/6 space-y-3 shadow p-1 sm:p-4 h-full bg-white rounded-lg sticky top-12">
       <Typography variant="title" className="sm:block hidden">Navbar</Typography>
       <SidebarItem href="/" isActive={pathname === "/"} text="Product" icon={<ProductIcon />} />
       <SidebarItem href="/cart" isActive={pathname.includes("/cart")} text="Cart" icon={<CartIcon />} />
