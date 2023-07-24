@@ -4,7 +4,7 @@ import { GetCartResult } from "@/types/cart";
 import { columns } from "./constant";
 import { useFetch } from "@/hooks/useRequest";
 import { useSearchParams } from "next/navigation";
-import { Pagination } from "@/components";
+import { Pagination, Typography } from "@/components";
 
 export default function Page() {
   const searchParams = useSearchParams();
@@ -15,6 +15,7 @@ export default function Page() {
 
   return (
     <main className="px-4 space-y-4">
+      <Typography variant="title" color="primary">Cart</Typography>
       <Table columns={columns} data={carts?.carts ?? []} isLoading={isLoading}/>
       <Pagination page={parseInt(page)} total={carts?.total ?? 0} />
     </main>

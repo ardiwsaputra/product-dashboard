@@ -3,7 +3,7 @@ import { Table } from "@/components/Table";
 import { GetProductResult } from "@/types/product";
 import { columns } from "./constant";
 import { useFetch } from "@/hooks/useRequest";
-import { Pagination } from "@/components";
+import { Pagination, Typography } from "@/components";
 import { useSearchParams } from "next/navigation";
 
 export default function Product() {
@@ -16,6 +16,7 @@ export default function Product() {
 
   return (
     <main className="pl-4 space-y-4">
+      <Typography variant="title" color="primary">Product</Typography>
       <Table columns={columns} data={products?.products ?? []} isLoading={isLoading}/>
       <Pagination page={parseInt(page)} total={products?.total ?? 0} />
     </main>
