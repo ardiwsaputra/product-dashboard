@@ -16,7 +16,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="flex flex-col space-y-4 bg-white w-full p-4 rounded-lg">
-      <Back className="cursor-pointer rounded-lg" onClick={() => router.push("/cart")} />
+      <Back className="cursor-pointer rounded-lg" onClick={() => router.back()} />
       <Typography variant="title" color="primary">Cart Detail</Typography>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <Typography variant="subtitle">User: {user?.firstName} {user?.lastName}</Typography>
