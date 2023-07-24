@@ -14,7 +14,7 @@ export default function Page() {
   const { data: carts, isLoading }= useFetch<GetCartResult>(`carts?limit=${limit}&skip=${skip}`);
 
   return (
-    <main className="px-4 space-y-4">
+    <main className="px-4 space-y-4 pb-8">
       <Typography variant="title" color="primary">Cart</Typography>
       <Table columns={columns} data={carts?.carts ?? []} isLoading={isLoading}/>
       <Pagination page={parseInt(page)} total={carts?.total ?? 0} />
