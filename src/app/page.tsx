@@ -39,7 +39,7 @@ export default function Product() {
       product.title.toLowerCase().includes(deferredSearch.toLowerCase())
         && (filterBrand !== "" ? product.brand === filterBrand : true)
         && (filterCategory !== "" ? product.category === filterCategory : true)
-        && (filterPriceRange.from !== null && filterPriceRange.to !== null ? product.price >= filterPriceRange.from && product.price <= filterPriceRange.to : true)
+        && (filterPriceRange.from !== null && filterPriceRange.to !== null && filterPriceRange.from !== "" && filterPriceRange.to !== "" ? product.price >= filterPriceRange.from && product.price <= filterPriceRange.to : true)
     );
   }) : [];
 
