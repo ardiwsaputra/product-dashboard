@@ -6,12 +6,15 @@ import { useFetch } from "@/hooks/useRequest";
 import { Input, Pagination, Select, Typography } from "@/components";
 import { useSearchParams } from "next/navigation";
 import React, { useDeferredValue, useState } from "react";
+import InputRange from "@/components/input-range";
 
 export default function Product() {
   const [search, setSearch] = useState<string>("");
+  const deferredSearch = useDeferredValue(search);
+  const [filterPriceRange, setFilterPriceRange] = useState({ from: null, to: null });
+  const deferredPriceRange = useDeferredValue(filterPriceRange);
   const [filterCategory, setFilterCategory] = useState<string>("");
   const [filterBrand, setFilterBrand] = useState<string>("");
-  const deferredSearch = useDeferredValue(search);
   const searchParams = useSearchParams();
   const page = searchParams.get("page") ?? "1";
   const limit = 10;
@@ -24,11 +27,19 @@ export default function Product() {
     setSearch(e.target.value);
   };
 
+  const handleInputPriceRangeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilterPriceRange({
+      ...filterPriceRange,
+      [e.target.name]: e.target.value
+    });
+  };
+
   const arraySearch = products ? products.products.filter((product) => {
     return (
       product.title.toLowerCase().includes(deferredSearch.toLowerCase())
         && (filterBrand !== "" ? product.brand === filterBrand : true)
         && (filterCategory !== "" ? product.category === filterCategory : true)
+        && (filterPriceRange.from !== null && filterPriceRange.to !== null ? product.price >= filterPriceRange.from && product.price <= filterPriceRange.to : true)
     );
   }) : [];
 
@@ -48,6 +59,16 @@ export default function Product() {
           label="Brand"
           data={brands.map((brand) => ({ value: brand, label: brand }))} 
           onChange={(e) => setFilterBrand(e.target.value)}
+        />
+        <InputRange 
+          namefrom="from"
+          nameto="to"
+          label="Price Range" 
+          type="number" 
+          min={0} 
+          valuefrom={deferredPriceRange.from}
+          valueto={deferredPriceRange.to}
+          onChange={handleInputPriceRangeChange}
         />
       </div>
       <Table 

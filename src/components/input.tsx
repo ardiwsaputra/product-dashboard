@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from ".";
 
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-    label: string;
+    label?: string;
 }
 
 const Input: React.FC<Props> = ({ label, ...rest }) => {
